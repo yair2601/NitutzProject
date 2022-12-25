@@ -87,7 +87,14 @@ namespace Project
             initLists();//אתחול כל הרשימות
                         //Application.Run(new Form1());
 
+            Application.Run(new Form3());
+                        // Console.WriteLine(Employee.Count);
+            EmployeesTypes Type = (EmployeesTypes)Enum.Parse(typeof(EmployeesTypes), "Finance");
+            EmployeesStatuses Status = (EmployeesStatuses)Enum.Parse(typeof(EmployeesStatuses), "Vacation");
 
+           // Employee w = new Employee(88789, "Gay", 1, 1234, Type, Status, 316104306, true);
+          //  w.SetSalary(6669);
+           // w.Update_Employee();
            // Customer cust = new Customer(3160, 'nirn@mgail.co', 'NirInc', 'Nir', '+6576765', 'AniSisma', 5, 'TRUE', 'TRUE', 888, true);
         }
     }
