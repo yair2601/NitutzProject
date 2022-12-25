@@ -51,7 +51,7 @@ namespace Project
 
         public void set_id(int id)
         {
-            this.EmployeeId = id;
+            this.EmployeeId = id ;
         }
 
         public void set_name(string name)
@@ -76,7 +76,7 @@ namespace Project
 
         public void set_Salary(int salary)
         {
-            this.Salary = salary;
+            this.Salary = salary ;
         }
 
         public EmployeesStatuses getStatus()

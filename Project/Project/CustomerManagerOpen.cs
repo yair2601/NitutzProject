@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Project
 {
-    public partial class Form2 : Form
+    public partial class CustomerManagerOpen : Form
     {
-        public Form2()
+        public CustomerManagerOpen()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

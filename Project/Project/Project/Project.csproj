@@ -51,18 +51,12 @@
     <Compile Include="EmployeesStatuses.cs" />
     <Compile Include="EmployeesTypes.cs" />
     <Compile Include="Employee.cs" />
-    <Compile Include="Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
     <Compile Include="SQL_CON.cs" />
-    <Compile Include="CustomerManagerOpen.cs">
+    <Compile Include="Customer management.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomerManagerOpen.Designer.cs">
-      <DependentUpon>CustomerManagerOpen.cs</DependentUpon>
+    <Compile Include="Customer management.Designer.cs">
+      <DependentUpon>Customer management.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,8 +65,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SAD_33DataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CustomerManagerOpen.resx">
-      <DependentUpon>CustomerManagerOpen.cs</DependentUpon>
+    <EmbeddedResource Include="Customer management.resx">
+      <DependentUpon>Customer management.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
