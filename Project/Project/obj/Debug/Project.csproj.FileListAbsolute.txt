@@ -7,10 +7,6 @@ C:\Users\yairgaf\source\repos\Project\Project\obj\Debug\Project.csproj.GenerateR
 C:\Users\yairgaf\source\repos\Project\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
 C:\Users\yairgaf\source\repos\Project\Project\obj\Debug\Project.exe
 C:\Users\yairgaf\source\repos\Project\Project\obj\Debug\Project.pdb
-C:\Users\nirnoam\Downloads\Project\Project\obj\Debug\Project.csprojResolveAssemblyReference.cache
-C:\Users\nirnoam\Downloads\Project\Project\obj\Debug\Project.CustomerManagerOpen.resources
-C:\Users\nirnoam\Downloads\Project\Project\obj\Debug\Project.Properties.Resources.resources
-C:\Users\nirnoam\Downloads\Project\Project\obj\Debug\Project.csproj.GenerateResource.Cache
-C:\Users\nirnoam\Downloads\Project\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
-C:\Users\nirnoam\Downloads\Project\Project\obj\Debug\Project.exe
-C:\Users\nirnoam\Downloads\Project\Project\obj\Debug\Project.pdb
+C:\Users\yairgaf\source\repos\Project\Project\obj\Debug\Project.CreateEmployee.resources
+C:\Users\yairgaf\source\repos\Project\Project\obj\Debug\Project.Form3.resources
+C:\Users\yairgaf\source\repos\Project\Project\obj\Debug\Project.Form1.resources

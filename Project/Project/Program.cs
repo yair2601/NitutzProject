@@ -9,9 +9,9 @@ namespace Project
 {
     static class Program
     {
+        private static object employeeTemp;
+
         public static List<Employee> Employee { get; private set; }
-        public static List<Customer> Customer { get; private set; }
-        public static Employee employeeTemp;
 
         /// <summary>
         /// The main entry point for the application.
@@ -24,22 +24,21 @@ namespace Project
 
         //שיטה שמחפשת עובד ברשימה לפי תעודת זהות
 
-
-        public static void initLists()//מילוי הרשימות מתוך בסיס הנתונים
-        {
-            init_workers();//אתחול הרשימה של העובדים
-            init_customers();
-        }
-
         public static Employee seekEmployee(int id)
         {
             foreach (Employee e in Employee)
             {
-                if (e.getId() == id)
+                if (e.GetEmployeeId() == id)
                     return e;
             }
             return null;
         }
+
+        public static void initLists()//מילוי הרשימות מתוך בסיס הנתונים
+        {
+            init_workers();//אתחול הרשימה של העובדים
+        }
+
 
         public static void init_workers()//מילוי המערך מתוך בסיס הנתונים
         {
@@ -53,31 +52,13 @@ namespace Project
             {
                 EmployeesTypes Type = (EmployeesTypes)Enum.Parse(typeof(EmployeesTypes), rdr.GetValue(4).ToString().Replace(" ", ""));
                 EmployeesStatuses Status = (EmployeesStatuses)Enum.Parse(typeof(EmployeesStatuses), rdr.GetValue(5).ToString().Replace(" ", ""));
-
-                employeeTemp = seekEmployee(Int32.Parse(rdr.GetValue(6).ToString())); //connection to employee type
-                Employee w = new Employee(Int32.Parse(rdr.GetValue(0).ToString()), rdr.GetValue(1).ToString(), Int32.Parse(rdr.GetValue(2).ToString()), Int32.Parse(rdr.GetValue(3).ToString()), Type, Status, employeeTemp, false);
+                employeeTemp = seekEmployee(Int32.Parse(rdr.GetValue(6).ToString()));
+                Employee w = new Employee(Int32.Parse(rdr.GetValue(0).ToString()), rdr.GetValue(1).ToString(), Int32.Parse(rdr.GetValue(2).ToString()), Int32.Parse(rdr.GetValue(3).ToString()), Type, Status, Int32.Parse(rdr.GetValue(6).ToString()) ,false);
                 Employee.Add(w);
             }
+
+
         }
-
-        public static void init_customers()
-        {
-            SqlCommand c = new SqlCommand();
-            c.CommandText = "EXECUTE dbo.getCustomers";
-            SQL_CON SC = new SQL_CON();
-            SqlDataReader rdr = SC.execute_query(c);
-            Customer = new List<Customer>();
-
-            while (rdr.Read())
-            {
-                isSpecialCountry special = (isSpecialCountry)Enum.Parse(typeof(isSpecialCountry), rdr.GetValue(8).ToString().Replace(" ", ""));
-                isActive active = (isActive)Enum.Parse(typeof(isActive), rdr.GetValue(7).ToString().Replace(" ", ""));
-                employeeTemp = seekEmployee(Int32.Parse(rdr.GetValue(9).ToString())); //connection to employee type
-                Customer c = new Customer(Int32.Parse(rdr.GetValue(0).ToString()), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), Int32.Parse(rdr.GetValue(6).ToString()), active, special, employeeTemp, false);
-                Customer.Add(c);
-            }
-        }
-
 
 
         static void Main()
@@ -85,10 +66,14 @@ namespace Project
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             initLists();//אתחול כל הרשימות
-                        //Application.Run(new Form1());
+            Application.Run(new Form3());
+                        // Console.WriteLine(Employee.Count);
+            EmployeesTypes Type = (EmployeesTypes)Enum.Parse(typeof(EmployeesTypes), "Finance");
+            EmployeesStatuses Status = (EmployeesStatuses)Enum.Parse(typeof(EmployeesStatuses), "Vacation");
 
-
-           // Customer cust = new Customer(3160, 'nirn@mgail.co', 'NirInc', 'Nir', '+6576765', 'AniSisma', 5, 'TRUE', 'TRUE', 888, true);
+           // Employee w = new Employee(88789, "Gay", 1, 1234, Type, Status, 316104306, true);
+          //  w.SetSalary(6669);
+           // w.Update_Employee();
         }
     }
 }
