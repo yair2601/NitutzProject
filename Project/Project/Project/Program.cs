@@ -23,7 +23,7 @@ namespace Project
         [STAThread]
 
         //שיטה שמחפשת עובד ברשימה לפי תעודת זהות
-
+       
 
         public static void initLists()//מילוי הרשימות מתוך בסיס הנתונים
         {
@@ -54,7 +54,7 @@ namespace Project
                 EmployeesTypes Type = (EmployeesTypes)Enum.Parse(typeof(EmployeesTypes), rdr.GetValue(4).ToString().Replace(" ", ""));
                 EmployeesStatuses Status = (EmployeesStatuses)Enum.Parse(typeof(EmployeesStatuses), rdr.GetValue(5).ToString().Replace(" ", ""));
 
-                employeeTemp = seekEmployee(Int32.Parse(rdr.GetValue(6).ToString())); //connection to employee type
+                employeeTemp = seekEmployee(Int32.Parse(rdr.GetValue(6).ToString()));
                 Employee w = new Employee(Int32.Parse(rdr.GetValue(0).ToString()), rdr.GetValue(1).ToString(), Int32.Parse(rdr.GetValue(2).ToString()), Int32.Parse(rdr.GetValue(3).ToString()), Type, Status, employeeTemp, false);
                 Employee.Add(w);
             }
@@ -72,30 +72,20 @@ namespace Project
             {
                 isSpecialCountry special = (isSpecialCountry)Enum.Parse(typeof(isSpecialCountry), rdr.GetValue(8).ToString().Replace(" ", ""));
                 isActive active = (isActive)Enum.Parse(typeof(isActive), rdr.GetValue(7).ToString().Replace(" ", ""));
-                employeeTemp = seekEmployee(Int32.Parse(rdr.GetValue(9).ToString())); //connection to employee type
+                employeeTemp = seekEmployee(Int32.Parse(rdr.GetValue(9).ToString()));
                 Customer c = new Customer(Int32.Parse(rdr.GetValue(0).ToString()), rdr.GetValue(1).ToString(), rdr.GetValue(2).ToString(), rdr.GetValue(3).ToString(), rdr.GetValue(4).ToString(), rdr.GetValue(5).ToString(), Int32.Parse(rdr.GetValue(6).ToString()), active, special, employeeTemp, false);
                 Customer.Add(c);
             }
         }
 
-
+       
 
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             initLists();//אתחול כל הרשימות
-                        //Application.Run(new Form1());
-
-            Application.Run(new Form3());
-                        // Console.WriteLine(Employee.Count);
-            EmployeesTypes Type = (EmployeesTypes)Enum.Parse(typeof(EmployeesTypes), "Finance");
-            EmployeesStatuses Status = (EmployeesStatuses)Enum.Parse(typeof(EmployeesStatuses), "Vacation");
-
-           // Employee w = new Employee(88789, "Gay", 1, 1234, Type, Status, 316104306, true);
-          //  w.SetSalary(6669);
-           // w.Update_Employee();
-           // Customer cust = new Customer(3160, 'nirn@mgail.co', 'NirInc', 'Nir', '+6576765', 'AniSisma', 5, 'TRUE', 'TRUE', 888, true);
+            //Application.Run(new Form1());
         }
     }
 }
