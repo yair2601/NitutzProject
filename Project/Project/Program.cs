@@ -1,0 +1,79 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+namespace Project
+{
+    static class Program
+    {
+        private static object employeeTemp;
+
+        public static List<Employee> Employee { get; private set; }
+
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        /// 
+        //רשימות
+        //public static System.Collections.Generic.List<Employee> Employee;
+        //public static System.Collections.Generic.List<Order> Orders;
+        [STAThread]
+
+        //שיטה שמחפשת עובד ברשימה לפי תעודת זהות
+
+        public static Employee seekEmployee(int id)
+        {
+            foreach (Employee e in Employee)
+            {
+                if (e.GetEmployeeId() == id)
+                    return e;
+            }
+            return null;
+        }
+
+        public static void initLists()//מילוי הרשימות מתוך בסיס הנתונים
+        {
+            init_workers();//אתחול הרשימה של העובדים
+        }
+
+
+        public static void init_workers()//מילוי המערך מתוך בסיס הנתונים
+        {
+            SqlCommand c = new SqlCommand();
+            c.CommandText = "EXECUTE dbo.getEmployees";
+            SQL_CON SC = new SQL_CON();
+            SqlDataReader rdr = SC.execute_query(c);
+            Employee = new List<Employee>();
+
+            while (rdr.Read())
+            {
+                EmployeesTypes Type = (EmployeesTypes)Enum.Parse(typeof(EmployeesTypes), rdr.GetValue(4).ToString().Replace(" ", ""));
+                EmployeesStatuses Status = (EmployeesStatuses)Enum.Parse(typeof(EmployeesStatuses), rdr.GetValue(5).ToString().Replace(" ", ""));
+                employeeTemp = seekEmployee(Int32.Parse(rdr.GetValue(6).ToString()));
+                Employee w = new Employee(Int32.Parse(rdr.GetValue(0).ToString()), rdr.GetValue(1).ToString(), Int32.Parse(rdr.GetValue(2).ToString()), Int32.Parse(rdr.GetValue(3).ToString()), Type, Status, Int32.Parse(rdr.GetValue(6).ToString()) ,false);
+                Employee.Add(w);
+            }
+
+
+        }
+
+
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            initLists();//אתחול כל הרשימות
+            Application.Run(new Form3());
+                        // Console.WriteLine(Employee.Count);
+            EmployeesTypes Type = (EmployeesTypes)Enum.Parse(typeof(EmployeesTypes), "Finance");
+            EmployeesStatuses Status = (EmployeesStatuses)Enum.Parse(typeof(EmployeesStatuses), "Vacation");
+
+           // Employee w = new Employee(88789, "Gay", 1, 1234, Type, Status, 316104306, true);
+          //  w.SetSalary(6669);
+           // w.Update_Employee();
+        }
+    }
+}
