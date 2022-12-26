@@ -10,15 +10,17 @@ using System.Windows.Forms;
 
 namespace Project
 {
-    public partial class intError : Form
+    public partial class customerCreated : Form
     {
-        public intError()
+        public customerCreated()
         {
             InitializeComponent();
         }
 
-        private void OKbutton_Click(object sender, EventArgs e)
+        private void back_Click(object sender, EventArgs e)
         {
+            CustomerManagerOpen window = new CustomerManagerOpen();
+            window.Show();
             this.Hide();
         }
     }

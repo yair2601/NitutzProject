@@ -45,17 +45,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="customerCreated.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="customerCreated.Designer.cs">
+      <DependentUpon>customerCreated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerNotInSystemError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerNotInSystemError.Designer.cs">
+      <DependentUpon>CustomerNotInSystemError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="customerUpdated.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="customerUpdated.Designer.cs">
+      <DependentUpon>customerUpdated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="isActive.cs" />
     <Compile Include="isSpecialCountry.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="EmployeesStatuses.cs" />
     <Compile Include="EmployeesTypes.cs" />
     <Compile Include="Employee.cs" />
-    <Compile Include="Form2.cs">
+    <Compile Include="searchCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="searchCustomer.Designer.cs">
+      <DependentUpon>searchCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="SQL_CON.cs" />
     <Compile Include="CustomerManagerOpen.cs">
@@ -71,8 +101,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SAD_33DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="UpdateCustomerInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateCustomerInfo.Designer.cs">
+      <DependentUpon>UpdateCustomerInfo.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="customerCreated.resx">
+      <DependentUpon>customerCreated.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomerManagerOpen.resx">
       <DependentUpon>CustomerManagerOpen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerNotInSystemError.resx">
+      <DependentUpon>CustomerNotInSystemError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="customerUpdated.resx">
+      <DependentUpon>customerUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -83,6 +134,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="searchCustomer.resx">
+      <DependentUpon>searchCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateCustomerInfo.resx">
+      <DependentUpon>UpdateCustomerInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

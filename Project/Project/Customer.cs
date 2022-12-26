@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Project
 {
@@ -16,12 +17,22 @@ namespace Project
         private string ContactPhone;
         private string password;
         private int Importance;
-        private isActive Active;
-        private isSpecialCountry specialCountry;
+        private string Active;
+        private string specialCountry;
         private Employee CreatedBy;
+        private TextBox dtext;
+        private TextBox nametext;
+        private TextBox contactname;
+        private TextBox contactemail;
+        private TextBox contactphone;
+        private TextBox password1;
+        private NumericUpDown importance;
+        private ComboBox activeComboBox;
+        private ComboBox specialCountryComboBox;
+        private int v1;
+        private bool v2;
 
-
-        public Customer(int ID, string email, string name, string contactName, string phone, string password, int importance, isActive active, isSpecialCountry special, Employee emp, bool is_new)
+        public Customer(int ID, string name, string contactName, string email, string phone, string password, int importance, string active, string special, Employee emp, bool is_new)
         {
             this.CustomerId = ID;
             this.Email = email;
@@ -35,8 +46,23 @@ namespace Project
             this.CreatedBy = emp;
             if (is_new) {
                 this.insert_Customer();
-                Program.Customer.Add(this);
+                Program.Customers.Add(this);
             }
+        }
+
+        public Customer(TextBox dtext, TextBox nametext, TextBox contactname, TextBox contactemail, TextBox contactphone, TextBox password1, NumericUpDown importance, ComboBox activeComboBox, ComboBox specialCountryComboBox, int v1, bool v2)
+        {
+            this.dtext = dtext;
+            this.nametext = nametext;
+            this.contactname = contactname;
+            this.contactemail = contactemail;
+            this.contactphone = contactphone;
+            this.password1 = password1;
+            this.importance = importance;
+            this.activeComboBox = activeComboBox;
+            this.specialCountryComboBox = specialCountryComboBox;
+            this.v1 = v1;
+            this.v2 = v2;
         }
 
         public void insert_Customer()
@@ -45,7 +71,8 @@ namespace Project
             c.CommandText = "EXECUTE dbo].[insertCustomer] @ID , @Email , @Name , @ContactName , @ContactPhone , @Password , @Importance , @Active, @SpeacialCountry, @CreatedBy ";
             c.Parameters.AddWithValue("@ID", this.CustomerId);
             c.Parameters.AddWithValue("@Name", this.Name);
-            c.Parameters.AddWithValue("@ContactName", this.ContactName.);
+            c.Parameters.AddWithValue("@Email", this.Email);
+            c.Parameters.AddWithValue("@ContactName", this.ContactName);
             c.Parameters.AddWithValue("@password", this.password);
             c.Parameters.AddWithValue("@Importance", this.Importance);
             c.Parameters.AddWithValue("@ContactPhone", this.ContactPhone);
@@ -139,22 +166,22 @@ namespace Project
             return this.Importance;
         }
 
-        public void set_Active(isActive active)
+        public void set_Active(string active)
         {
             this.Active = active;
         }
 
-        public isActive getActive()
+        public string getActive()
         {
             return this.Active;
         }
 
-        public void set_specialCountry(isSpecialCountry specialCountry)
+        public void set_specialCountry(string specialCountry)
         {
             this.specialCountry = specialCountry;
         }
 
-        public isSpecialCountry getSpecialCountry()
+        public string getSpecialCountry()
         {
             return this.specialCountry;
         }
@@ -169,5 +196,4 @@ namespace Project
             return this.CreatedBy;
         }
     }
-}
 }

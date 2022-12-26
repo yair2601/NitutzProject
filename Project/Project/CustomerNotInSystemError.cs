@@ -10,24 +10,15 @@ using System.Windows.Forms;
 
 namespace Project
 {
-    public partial class CustomerManagerOpen : Form
+    public partial class CustomerNotInSystemError : Form
     {
-        public CustomerManagerOpen()
+        public CustomerNotInSystemError()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            createCustomer window = new createCustomer();
-            window.Show();
-            this.Hide();
-        }
-
-        private void update_Customer_Click(object sender, EventArgs e)
-        {
-            searchCustomer window2 = new searchCustomer();
-            window2.Show();
             this.Hide();
         }
     }
